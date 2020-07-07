@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +12,7 @@ public class UIManager : MonoBehaviour
     public UnityAction action;
 
     public Image imgScope;
+    public Image imgCrossHair;
     public Button btnScope;
 
     private void Awake()
@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        //btnScope.OnPointerEnter(()=>ScopedCallBack());
 
     }
 
@@ -30,7 +29,21 @@ public class UIManager : MonoBehaviour
     {
         action.Invoke();
         imgScope.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        btnScope.gameObject.SetActive(false);
+        imgCrossHair.gameObject.SetActive(false);
     }
 
+    internal void ScopedOut()
+    {
+        imgScope.gameObject.SetActive(false);
+        btnScope.gameObject.SetActive(true);
+        imgCrossHair.gameObject.SetActive(true);
+        StartCoroutine(WaitToScopedOut());
+    }
+
+    IEnumerator WaitToScopedOut()
+    {
+        yield return new WaitForSeconds(.25f);
+
+    }
 }

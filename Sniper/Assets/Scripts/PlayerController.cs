@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,8 +28,6 @@ public class PlayerController : MonoBehaviour
     private bool cancelFire = false;
     private void Start()
     {
-        Input.multiTouchEnabled = false;
-
         UIManager.Instance.ScopedInaction += ScopedIn;
         UIManager.Instance.cancelFireAction += CancelFire;
     }
@@ -55,11 +54,6 @@ public class PlayerController : MonoBehaviour
         isScopedIn = true;
         DOTween.To(() => mainCamera.fieldOfView, x => mainCamera.fieldOfView = x, scopedInFOV, .5f);
         playerCamera.gameObject.SetActive(false);
-    }
-
-    IEnumerator WaitToScoppedIn()
-    {
-        yield return new WaitForSeconds(1.0f);
     }
 
     private void ScopedOut()
@@ -98,7 +92,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        InputHandler();
+        if (Application.isEditor)
+        {
+            InputHandler();
+        }
+        else
+        {
+            if (Input.touchCount == 1)
+                InputHandler();
+        }
     }
 
     private void InputHandler()

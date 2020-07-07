@@ -22,10 +22,22 @@ public class PlayerController : MonoBehaviour
 
     private RaycastHit hit;
     private bool isScopedIn = false;
+    public bool isPointerDown = false;
 
+    private bool cancelFire = false;
     private void Start()
     {
-        UIManager.Instance.action += ScopedIn;
+        Input.multiTouchEnabled = false;
+
+        UIManager.Instance.ScopedInaction += ScopedIn;
+        UIManager.Instance.cancelFireAction += CancelFire;
+    }
+
+    private void CancelFire()
+    {
+        cancelFire = true;
+        ScopedOut();
+        isScopedIn = false;
     }
 
     private void OnEnable()
@@ -34,7 +46,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        UIManager.Instance.action -= ScopedIn;
+        UIManager.Instance.ScopedInaction -= ScopedIn;
+        UIManager.Instance.cancelFireAction -= CancelFire;
     }
 
     private void ScopedIn()
@@ -53,7 +66,8 @@ public class PlayerController : MonoBehaviour
     {
         DOTween.To(() => mainCamera.fieldOfView, x => mainCamera.fieldOfView = x, normalFOV, .5f);
         StartCoroutine(WaitToScopedOut());
-        Fire();
+        if (cancelFire == false)
+            Fire();
     }
 
     IEnumerator WaitToScopedOut()
@@ -111,11 +125,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            if (isScopedIn)
+            if (cancelFire == false)
             {
-                ScopedOut();
-                isScopedIn = false;
+                if (isScopedIn)
+                {
+                    ScopedOut();
+                    isScopedIn = false;
+                }
             }
+            cancelFire = false;
         }
     }
 

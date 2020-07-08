@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
+                Destroy(enemy.gameObject.GetComponent<NavMeshAgent>());
                 enemy.TakeDamage(1);
 
                 enemy.gameObject.AddComponent(typeof(Rigidbody));
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             {
                 UIManager.Instance.ShowTextFirePopUp();
             }
+
+            GameManager.Instance.activeEnemyFire = true;
         }
     }
 

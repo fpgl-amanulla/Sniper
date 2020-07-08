@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ReferenceManager : MonoBehaviour
 {
     public static ReferenceManager Instance = null;
 
+    public NavMeshSurface navMeshSurface;
     public List<GameObject> hitPoints = new List<GameObject>();
+    public List<GameObject> enemyHidePoints = new List<GameObject>();
     public GameObject player;
     public PlayerUI playerUI;
 

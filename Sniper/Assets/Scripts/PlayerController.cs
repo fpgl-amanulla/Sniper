@@ -6,8 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ITakeDamage
 {
+    [SerializeField] private int health = 10;
+
     public Camera mainCamera;
     public Camera playerCamera;
 
@@ -93,14 +95,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isEditor)
+        if (!GameManager.Instance.isGameOver)
         {
-            InputHandler();
-        }
-        else
-        {
-            if (Input.touchCount == 1)
+            if (Application.isEditor)
+            {
                 InputHandler();
+            }
+            else
+            {
+                if (Input.touchCount == 1)
+                    InputHandler();
+            }
         }
     }
 
@@ -142,5 +147,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        ReferenceManager.Instance.playerUI.UpdateHealthBar(health);
+        if (health <= 0)
+        {
+            GameManager.Instance.isGameOver = true;
+            UIManager.Instance.WeaponUISetActive(false);
+            playerCamera.gameObject.SetActive(false);
+        }
+    }
 }

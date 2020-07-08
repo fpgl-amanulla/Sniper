@@ -11,12 +11,18 @@ public class WeaponUI : MonoBehaviour
     public UnityAction ScopedInaction;
     public UnityAction cancelFireAction;
 
+    public GameObject weaponUI;
+
     [Header("Weapon UI Components")]
     public Image imgScope;
     public Image imgCrossHair;
     public Button btnScope;
     public Button btnCancelFire;
     public TextMeshProUGUI txtFirePopUp;
+
+    [Header("Scope Sprite")]
+    public Sprite defaultScope;
+    public Sprite inactiveScope;
 
 
     private void Start()
@@ -29,6 +35,10 @@ public class WeaponUI : MonoBehaviour
         cancelFireAction.Invoke();
     }
 
+    public void WeaponUISetActive(bool task)
+    {
+        weaponUI.SetActive(task);
+    }
     public void ScopedCallBack()
     {
         ScopedInaction.Invoke();
@@ -36,7 +46,7 @@ public class WeaponUI : MonoBehaviour
         btnScope.gameObject.SetActive(false);
         imgCrossHair.gameObject.SetActive(false);
 
-        btnCancelFire.GetComponent<RectTransform>().DOAnchorPosX(20, .5f);
+        btnCancelFire.GetComponent<RectTransform>().DOAnchorPosX(0, .5f);
     }
 
     internal void ScopedOut()
@@ -48,8 +58,8 @@ public class WeaponUI : MonoBehaviour
     }
 
 
-    public void DeactiveScopedBtn() => btnScope.image.color = Color.grey;
-    public void NormalScopedBtn() => btnScope.image.color = Color.yellow;
+    public void DeactiveScopedBtn() => btnScope.image.sprite = inactiveScope;
+    public void NormalScopedBtn() => btnScope.image.sprite = defaultScope;
 
     public void ShowTextFirePopUp()
     {

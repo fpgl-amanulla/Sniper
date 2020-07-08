@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     private RaycastHit hit;
     private bool isScopedIn = false;
-    public bool isPointerDown = false;
 
     private bool cancelFire = false;
     private void Start()
@@ -37,11 +36,6 @@ public class PlayerController : MonoBehaviour
         cancelFire = true;
         ScopedOut();
         isScopedIn = false;
-    }
-
-    private void OnEnable()
-    {
-
     }
     private void OnDestroy()
     {
@@ -69,8 +63,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.35f);
         UIManager.Instance.ScopedOut();
         playerCamera.gameObject.SetActive(true);
-        mainCamera.fieldOfView = normalFOV;
-
     }
 
     private void Fire()
@@ -82,10 +74,19 @@ public class PlayerController : MonoBehaviour
 
             Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
             if (enemy != null)
-                enemy.TakeDamage(1);
-            if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(10 * -hit.normal, ForceMode.Impulse);
+                enemy.TakeDamage(1);
+
+                enemy.gameObject.AddComponent(typeof(Rigidbody));
+                enemy.GetComponent<Rigidbody>().AddForce(10 * -hit.normal, ForceMode.Impulse);
+            }
+            //if (hit.rigidbody != null)
+            //{
+            //    hit.rigidbody.AddForce(10 * -hit.normal, ForceMode.Impulse);
+            //}
+            if (hit.collider.CompareTag("Head"))
+            {
+                UIManager.Instance.ShowTextFirePopUp();
             }
         }
     }
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lastPos = Input.mousePosition;
+            UIManager.Instance.DeactiveScopedBtn();
         }
         else if (Input.GetMouseButton(0))
         {
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             cancelFire = false;
+            UIManager.Instance.NormalScopedBtn();
         }
     }
 

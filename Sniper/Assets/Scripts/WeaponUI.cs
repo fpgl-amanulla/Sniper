@@ -67,6 +67,15 @@ public class WeaponUI : MonoBehaviour
         StartCoroutine(DisableTxtFirePopUp());
     }
 
+    public void OnPointerDownAnim()
+    {
+        btnCancelFire.transform.DOScale(new Vector3(.8f, .8f, .8f), .1f);
+    }
+    public void OnPointerUpAnim()
+    {
+        btnCancelFire.transform.DOScale(Vector3.one, .1f);
+    }
+
     IEnumerator DisableTxtFirePopUp()
     {
         yield return new WaitForSeconds(1.25f);

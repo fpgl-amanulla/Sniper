@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,5 +18,15 @@ public class ReferenceManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+
+        VanishEnemyPoint();
+    }
+
+    private void VanishEnemyPoint()
+    {
+        for (int i = 0; i < enemyHidePoints.Count; i++)
+        {
+            enemyHidePoints[i].GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 }

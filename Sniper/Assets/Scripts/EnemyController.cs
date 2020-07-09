@@ -26,7 +26,6 @@ public class EnemyController : Enemy
     public EnemtType enemtType;
     private GameObject player;
     public NavMeshAgent agent;
-    public NavMeshSurface surface;
     public GameObject bullet;
     public Transform firePoint;
     private float fireDelay = 1f;
@@ -45,9 +44,12 @@ public class EnemyController : Enemy
 
     private void Start()
     {
-        surface = ReferenceManager.Instance.navMeshSurface;
-        surface.BuildNavMesh();
-        agent = GetComponent<NavMeshAgent>();
+        if (GetComponent<NavMeshAgent>() == null)
+            gameObject.AddComponent<NavMeshAgent>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.baseOffset = 1.0f;
+        agent.height = 2.0f;
+
         playerHitPoints = ReferenceManager.Instance.hitPoints;
         player = ReferenceManager.Instance.player;
         enemyHidePoints = ReferenceManager.Instance.enemyHidePoints;

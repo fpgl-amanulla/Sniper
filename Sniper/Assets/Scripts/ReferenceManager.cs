@@ -19,6 +19,8 @@ public class ReferenceManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
 
+        navMeshSurface.BuildNavMesh();
+
         VanishEnemyPoint();
     }
 

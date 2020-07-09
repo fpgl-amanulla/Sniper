@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver { get; set; }
     public bool activeEnemyFire { get; set; }
+
+
     private void Awake()
     {
         if (Instance == null) Instance = this;

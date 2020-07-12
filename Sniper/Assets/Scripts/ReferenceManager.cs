@@ -11,6 +11,7 @@ public class ReferenceManager : MonoBehaviour
     public NavMeshSurface navMeshSurface;
     public List<GameObject> hitPoints = new List<GameObject>();
     public List<GameObject> enemyHidePoints = new List<GameObject>();
+    public List<Transform> waypoints = new List<Transform>();
     public GameObject player;
     public PlayerUI playerUI;
     public Transform escapePoint;

@@ -9,6 +9,9 @@ public enum EnemtType
 {
     staticEnemy,
     dynamicEnemy,
+    killerEnemy,
+    briefCaseEnemy,
+    bossEnemy
 }
 
 public class EnemyController : Enemy
@@ -25,7 +28,8 @@ public class EnemyController : Enemy
 
     public EnemtType enemtType;
     private GameObject player;
-    public NavMeshAgent agent;
+    public GameObject victim = null;
+    private NavMeshAgent agent;
     public GameObject bullet;
     public Transform firePoint;
     private float fireDelay = 1f;
@@ -36,6 +40,10 @@ public class EnemyController : Enemy
 
     private bool isDied = false;
     private bool isHide = false;
+    private bool shootVictim = true;
+    public float waitTime;
+    private Transform briefCaseEnemyEscapePoint;
+
     private void Die()
     {
         isDied = true;
@@ -53,6 +61,11 @@ public class EnemyController : Enemy
         playerHitPoints = ReferenceManager.Instance.hitPoints;
         player = ReferenceManager.Instance.player;
         enemyHidePoints = ReferenceManager.Instance.enemyHidePoints;
+
+        if (ReferenceManager.Instance.escapePoint != null)
+        {
+            briefCaseEnemyEscapePoint = ReferenceManager.Instance.escapePoint;
+        }
     }
 
     private void Update()
@@ -60,25 +73,54 @@ public class EnemyController : Enemy
 
         if (isDied == false && !GameManager.Instance.isGameOver && GameManager.Instance.activeEnemyFire)
         {
-            if (enemtType == EnemtType.dynamicEnemy)
-            {
-                if (!isHide)
-                {
-                    isHide = true;
-                    Vector3 nearestPosition = FindNearestHidePoint();
-                    agent.SetDestination(nearestPosition);
-                }
 
-                if (agent.remainingDistance < .5f)
-                {
-                    StartShooting();
-                }
-            }
-            else if (enemtType == EnemtType.staticEnemy)
+            switch (enemtType)
             {
-                StartShooting();
+                case EnemtType.dynamicEnemy:
+                    if (!isHide)
+                    {
+                        isHide = true;
+                        Vector3 nearestPosition = FindNearestHidePoint();
+                        agent.SetDestination(nearestPosition);
+                    }
+
+                    if (agent.remainingDistance < .5f)
+                    {
+                        StartShooting();
+                    }
+                    break;
+                case EnemtType.staticEnemy:
+                    StartShooting();
+                    break;
+                case EnemtType.killerEnemy:
+                    if (shootVictim)
+                    {
+                        shootVictim = false;
+                        transform.LookAt(victim.transform);
+                        StartCoroutine(Kill(waitTime));
+                    }
+                    break;
+                case EnemtType.briefCaseEnemy:
+                    {
+                        agent.speed = 5.0f;
+                        agent.SetDestination(briefCaseEnemyEscapePoint.position);
+                    }
+                    break;
+                default:
+                    break;
             }
         }
+    }
+
+    private IEnumerator Kill(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        newBullet.transform.DOMove(victim.transform.position, .5f);
+        yield return new WaitForSeconds(.5f);
+        victim.gameObject.AddComponent(typeof(Rigidbody));
+        victim.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Impulse);
+        Destroy(newBullet, .45f);
     }
 
     private void StartShooting()

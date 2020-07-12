@@ -13,6 +13,7 @@ public class ReferenceManager : MonoBehaviour
     public List<GameObject> enemyHidePoints = new List<GameObject>();
     public GameObject player;
     public PlayerUI playerUI;
+    public Transform escapePoint;
 
     private void Awake()
     {

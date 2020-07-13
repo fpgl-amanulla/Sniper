@@ -16,6 +16,7 @@ public class Animal : AnimalData, ITakeDamage
     public bool reachedDestination;
 
     public List<Transform> waypoints = new List<Transform>();
+    public AnimalCanvas animalCanvas;
     private bool isDied = false;
     private bool isAttacking = false;
     private void Start()
@@ -28,6 +29,10 @@ public class Animal : AnimalData, ITakeDamage
 
     private void InitAnimalData()
     {
+        AnimalCanvas canvas = Resources.Load<PrefabsList>("PrefabsList").animalCanvasPrefab;
+        animalCanvas = Instantiate(canvas, this.transform);
+        animalCanvas.InitAnimalCanvas(this);
+        //animalCanvas.InitAnimalCanvas(health, productName);
         movementSpeed = Random.Range(4, 7);
         rotationSpeed = Random.Range(100, 120);
         stopDistance = 2.5f;
@@ -76,9 +81,11 @@ public class Animal : AnimalData, ITakeDamage
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
+        animalCanvas.UpadateHealthBar(health);
         if (health <= 0)
         {
             isDied = true;
+            animalCanvas.gameObject.SetActive(false);
             movementSpeed = 0;
             rotationSpeed = 0;
             Die();

@@ -8,6 +8,9 @@ public class PrefabsList : ScriptableObject
     [Header("Animal Prefabs List")]
     public List<GameObject> allAnimalPrefabs = new List<GameObject>();
 
+    [Header("Animal Canvas Prefabs")]
+    public AnimalCanvas animalCanvasPrefab;
+
     public GameObject GetAnimalPrefeb(int productId)
     {
         for (int i = 0; i < allAnimalPrefabs.Count; i++)

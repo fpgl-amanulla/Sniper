@@ -30,3 +30,5 @@ MonoBehaviour:
   - {fileID: 7463216078461910446, guid: 927a45f9303f4c94384b813a24637f12, type: 3}
   - {fileID: 6040101199841023021, guid: e14315c7a2f867c4c841f3f956efc9a8, type: 3}
   - {fileID: 978570324127137692, guid: af884d86553941643938f0f0753b888b, type: 3}
+  animalCanvasPrefab: {fileID: 2115281113778679973, guid: c8f9f8a9173393e4aaed4441c6a284c5,
+    type: 3}

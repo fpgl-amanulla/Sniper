@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class AnimalData : MonoBehaviour
 {
-    public int health = 1;
+    public float health = 10;
+    private string productName;
+    private int productId;
 }

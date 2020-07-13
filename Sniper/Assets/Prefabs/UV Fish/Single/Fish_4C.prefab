@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4469209588492744982}
   - component: {fileID: 5805089001550746732}
   - component: {fileID: 8345076738413383619}
-  m_Layer: 11
+  - component: {fileID: -7645379979331292046}
+  m_Layer: 0
   m_Name: Fish_4C
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 603072962164673285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.74, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4465020113840200538}
   - {fileID: 3775661519961767591}
@@ -66,6 +67,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.25, z: 3}
   m_Center: {x: 0, y: 1.7, z: -0.25}
+--- !u!114 &-7645379979331292046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603072962164673285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4b6c45fee97ca43aff3e5cc7d03baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  movementSpeed: 0
+  rotationSpeed: 0
+  stopDistance: 0
+  destination: {x: 0, y: 0, z: 0}
+  reachedDestination: 0
+  waypoints: []
 --- !u!1 &6798797426692033506
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4465020113840200538}
   - component: {fileID: 1668564514372948010}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: _little_fish:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +131,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -156,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3775661519961767591}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

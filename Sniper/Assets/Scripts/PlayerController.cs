@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour, ITakeDamage
 {
-    [SerializeField] private int health = 10;
+    [SerializeField] private float health = 10;
 
     public Camera mainCamera;
     public Camera playerCamera;
@@ -75,16 +75,16 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             GameObject fireEffect = Instantiate(FXManager.Instance.fireEffect, hit.point, Quaternion.identity);
             Destroy(fireEffect, 2.0f);
 
+            if (hit.distance > 100)
+            {
+                Debug.Log("Not in Range");
+            }
+
             Animal animal = hit.transform.GetComponentInParent<Animal>();
             if (animal != null)
             {
                 animal.TakeDamage(1);
-                Destroy(animal.gameObject);
             }
-            //if (hit.rigidbody != null)
-            //{
-            //    hit.rigidbody.AddForce(10 * -hit.normal, ForceMode.Impulse);
-            //}
             if (hit.collider.CompareTag("Head"))
             {
                 UIManager.Instance.ShowTextFirePopUp();
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             rotY -= deltaPos.x * speed * Time.deltaTime * -1;
 
             rotX = Mathf.Clamp(rotX, -5, 10);
-            rotY = Mathf.Clamp(rotY, -45, 45);
+            rotY = Mathf.Clamp(rotY, -50, 50);
 
             mainCamera.transform.localRotation = Quaternion.Euler(rotX, 0, 0);
 
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
         ReferenceManager.Instance.playerUI.UpdateHealthBar(health);

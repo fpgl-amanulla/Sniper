@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6256839262317503704}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8475549503949351645}
   - component: {fileID: 7599978618874994737}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: _little_fish_exported:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,6 +75,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -122,7 +123,8 @@ GameObject:
   - component: {fileID: 6680184583719838569}
   - component: {fileID: 3620555167167794707}
   - component: {fileID: 3919416504231994632}
-  m_Layer: 11
+  - component: {fileID: 6060577899028557795}
+  m_Layer: 0
   m_Name: Fish_1B
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -138,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 7705537624055714170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8475549503949351645}
   - {fileID: 6256839262317503704}
@@ -177,3 +179,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 2.5}
   m_Center: {x: 0, y: 1.7, z: -0.25}
+--- !u!114 &6060577899028557795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705537624055714170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4b6c45fee97ca43aff3e5cc7d03baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  movementSpeed: 0
+  rotationSpeed: 0
+  stopDistance: 0
+  destination: {x: 0, y: 0, z: 0}
+  reachedDestination: 0
+  waypoints: []

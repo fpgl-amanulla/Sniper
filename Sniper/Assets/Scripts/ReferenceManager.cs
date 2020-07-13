@@ -9,12 +9,10 @@ public class ReferenceManager : MonoBehaviour
     public static ReferenceManager Instance = null;
 
     public NavMeshSurface navMeshSurface;
-    public List<GameObject> hitPoints = new List<GameObject>();
-    public List<GameObject> enemyHidePoints = new List<GameObject>();
     public List<Transform> waypoints = new List<Transform>();
     public GameObject player;
+    public GameObject mainCamera;
     public PlayerUI playerUI;
-    public Transform escapePoint;
 
     private void Awake()
     {
@@ -23,14 +21,14 @@ public class ReferenceManager : MonoBehaviour
 
         navMeshSurface.BuildNavMesh();
 
-        VanishEnemyPoint();
+        HideWaypoint();
     }
 
-    private void VanishEnemyPoint()
+    private void HideWaypoint()
     {
-        for (int i = 0; i < enemyHidePoints.Count; i++)
+        for (int i = 0; i < waypoints.Count; i++)
         {
-            enemyHidePoints[i].GetComponent<MeshRenderer>().enabled = false;
+            waypoints[i].GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }

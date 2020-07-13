@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1050699443842753181}
   - component: {fileID: 6926208926327640039}
   - component: {fileID: 786122485007138363}
-  m_Layer: 11
+  - component: {fileID: -1885555401207472734}
+  m_Layer: 0
   m_Name: SeaHorseB
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4093644840664060046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.65, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 966013057144242385}
   - {fileID: 357156317308986668}
@@ -66,6 +67,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 1.75, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-1885555401207472734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4093644840664060046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4b6c45fee97ca43aff3e5cc7d03baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  movementSpeed: 0
+  rotationSpeed: 0
+  stopDistance: 0
+  destination: {x: 0, y: 0, z: 0}
+  reachedDestination: 0
+  waypoints: []
 --- !u!1 &5074567485516466679
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 357156317308986668}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966013057144242385}
   - component: {fileID: 2861731310736903073}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: _little_fish:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +161,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

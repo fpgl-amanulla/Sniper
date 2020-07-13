@@ -13,7 +13,7 @@ public class PlayerUI : MonoBehaviour
         imgFill.fillAmount = 1;
     }
 
-    public void UpdateHealthBar(int currentHealth)
+    public void UpdateHealthBar(float currentHealth)
     {
         float amount = (float)currentHealth / 10;
         imgFill.fillAmount = amount;

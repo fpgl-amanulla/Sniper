@@ -75,14 +75,11 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             GameObject fireEffect = Instantiate(FXManager.Instance.fireEffect, hit.point, Quaternion.identity);
             Destroy(fireEffect, 2.0f);
 
-            Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
-            if (enemy != null)
+            Animal animal = hit.transform.GetComponentInParent<Animal>();
+            if (animal != null)
             {
-                Destroy(enemy.gameObject.GetComponent<NavMeshAgent>());
-                enemy.TakeDamage(1);
-
-                enemy.gameObject.AddComponent(typeof(Rigidbody));
-                enemy.GetComponent<Rigidbody>().AddForce(10 * -hit.normal, ForceMode.Impulse);
+                animal.TakeDamage(1);
+                Destroy(animal.gameObject);
             }
             //if (hit.rigidbody != null)
             //{

@@ -1,11 +1,7 @@
 ﻿using DG.Tweening;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour, ITakeDamage
 {
@@ -157,6 +153,15 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             GameManager.Instance.isGameOver = true;
             UIManager.Instance.WeaponUISetActive(false);
             playerCamera.gameObject.SetActive(false);
+            StartCoroutine(LoadLevelfailedPanel());
         }
+    }
+
+    IEnumerator LoadLevelfailedPanel()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameObject panelLevelfailed = ReferenceManager.Instance.prefabsList.panelLevelFailedPrefab;
+        Instantiate(panelLevelfailed, UIManager.Instance.transform);
+        LevelManager.Instance.ResetLevel();
     }
 }

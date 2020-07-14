@@ -13,6 +13,10 @@ public class PrefabsList : ScriptableObject
 
     [Header("Panel Objective Prefab")]
     public GameObject panelObjectivePrefab;
+    [Header("Panel Level Complete")]
+    public GameObject panelLevelCompletePrefab;
+    [Header("Panel Level Failed")]
+    public GameObject panelLevelFailedPrefab;
 
     public GameObject GetAnimalPrefeb(int productId)
     {

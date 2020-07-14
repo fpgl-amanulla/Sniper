@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool isGameOver { get; set; }
     public bool activeEnemyFire { get; set; }
 
+    public int killCount { get; set; }
+
 
     private void Awake()
     {
@@ -16,6 +18,9 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         activeEnemyFire = false;
     }
+
+    public int GetCurrentKillCount() => killCount;
+    public void ResetKillCout() => killCount = 0;
 
     private void OnApplicationQuit()
     {

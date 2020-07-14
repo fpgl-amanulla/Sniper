@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3061307847294334348}
   - component: {fileID: 4414474555948506950}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EatCollider
   m_TagString: PlayerShark
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8574937845187390717}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8849418433392419615}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6661328708349084412}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7501487741948501220}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5859614216816746085}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint19 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8289451396500247544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3006790669161787080}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966401844468964329}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8988783231871362716}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint18 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2202216658438937557}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1590168764786754810}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3991985887344411004}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint20 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6539451037183893546}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8445316979473035233}
   - component: {fileID: 5673935716034437321}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: 2375
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5419606676612176078}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557006178446552501}
   - component: {fileID: 4586504615831236751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3840530534494482784}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3429267646626966994}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 277805360185201958}
   - component: {fileID: 2460921178129073303}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:srk05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,6 +682,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -753,7 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8712057063762941135}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5012862285415839844}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197913928335128994}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:group_Joints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7548811385990119974}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3389887361074831331}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334499939166651032}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361095622225648392}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046253665540135985}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977755612005802907}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5300548453439032222}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6120703920058158093}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1096,7 +1097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9096457964088796655}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: srk05_NewRig:joint21
   m_TagString: Untagged
   m_Icon: {fileID: 0}

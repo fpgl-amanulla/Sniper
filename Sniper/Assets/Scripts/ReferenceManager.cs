@@ -13,10 +13,11 @@ public class ReferenceManager : MonoBehaviour
     public GameObject player;
     public GameObject mainCamera;
     public GameObject playerCamera;
-    public PlayerUI playerUI;
 
     [Header("Prefabs List")]
     public PrefabsList prefabsList;
+    [Header("Player UI")]
+    public PlayerUI playerUI;
 
     private void Awake()
     {

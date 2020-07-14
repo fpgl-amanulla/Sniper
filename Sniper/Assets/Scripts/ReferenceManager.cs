@@ -12,7 +12,11 @@ public class ReferenceManager : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     public GameObject player;
     public GameObject mainCamera;
+    public GameObject playerCamera;
     public PlayerUI playerUI;
+
+    [Header("Prefabs List")]
+    public PrefabsList prefabsList;
 
     private void Awake()
     {

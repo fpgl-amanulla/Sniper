@@ -16,4 +16,13 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         activeEnemyFire = false;
     }
+
+    private void OnApplicationQuit()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            DatabaseManager.sharedManager().databaseBinary.Close();
+            DatabaseManager.sharedManager().databaseDocument.Close();
+        }
+    }
 }

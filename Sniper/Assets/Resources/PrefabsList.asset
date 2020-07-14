@@ -32,3 +32,5 @@ MonoBehaviour:
   - {fileID: 978570324127137692, guid: af884d86553941643938f0f0753b888b, type: 3}
   animalCanvasPrefab: {fileID: 2115281113778679973, guid: c8f9f8a9173393e4aaed4441c6a284c5,
     type: 3}
+  panelObjectivePrefab: {fileID: 8202560457668468642, guid: 2654747fd171c9244ac94b889d411363,
+    type: 3}

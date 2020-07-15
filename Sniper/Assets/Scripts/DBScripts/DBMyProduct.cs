@@ -126,10 +126,10 @@ public class DBMyProduct
         return true;
     }
 
-    public static DBMyProduct Create(int primaryKey)
+    public static DBMyProduct Create(int productId)
     {
         DBMyProduct ret = new DBMyProduct();
-        if (ret != null && ret.Init(primaryKey))
+        if (ret != null && ret.Init(productId))
         {
             return ret;
         }
@@ -139,18 +139,22 @@ public class DBMyProduct
         }
     }
 
-    private bool Init(int primaryKey)
+    private bool Init(int productId)
     {
-        IEnumerable<my_product> ieumAllMyProduct = DatabaseManager.sharedManager().databaseDocument.Table<my_product>().Where(t => t.productid == primaryKey);
+        IEnumerable<my_product> ieumAllMyProduct = DatabaseManager.sharedManager().databaseDocument.Table<my_product>().Where(t => t.productid == productId);
 
         foreach (var t in ieumAllMyProduct)
         {
             my_product _my_Product = t;
             _my_Product.GetMyProduct(this);
+            return true;
         }
 
-        return true;
+        return false;
+        
     }
+
+
 
     private void SetDefaultValue()
     {

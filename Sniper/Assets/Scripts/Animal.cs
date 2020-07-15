@@ -140,7 +140,14 @@ public class Animal : AnimalData, ITakeDamage
 
     private void Die()
     {
-        transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 180), 1f);
-        Destroy(gameObject, 2.0f);
+        transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 180), 1f).OnComplete(OncompleteCallBack);
+        GameObject deathFx = Instantiate(FXManager.Instance.deathEffect, transform.position, Quaternion.identity);
+        Destroy(deathFx, 1.5f);
+        Destroy(gameObject, 4.0f);
+    }
+
+    private void OncompleteCallBack()
+    {
+        gameObject.AddComponent<Rigidbody>();
     }
 }

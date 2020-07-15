@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Management.Instrumentation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,10 +20,13 @@ public class Animal : AnimalData, ITakeDamage
     public AnimalCanvas animalCanvas;
     private bool isDied = false;
     private bool isAttacking = false;
+
+    private Manager manager;
     private void Start()
     {
+        manager = Manager.Instance;
         InitAnimalData();
-        waypoints = ReferenceManager.Instance.waypoints;
+        waypoints = manager.waypoints;
         animator = GetComponent<Animator>();
         SetDestination();
     }
@@ -87,12 +91,12 @@ public class Animal : AnimalData, ITakeDamage
             animalCanvas.gameObject.SetActive(false);
             movementSpeed = 0;
             rotationSpeed = 0;
-            GameManager.Instance.killCount++;
-            ReferenceManager.Instance.panelGame.UpdateKillCount();
-            if (GameManager.Instance.killCount >= LevelManager.Instance.GetCurrentLevelInfo().animalToHunt)
+            manager.gameManager.killCount++;
+            manager.panelGame.UpdateKillCount();
+            if (manager.gameManager.killCount >= manager.levelManager.GetCurrentLevelInfo().animalToHunt)
             {
                 Debug.Log("Level Complete");
-                GameManager.Instance.isGameOver = true;
+                manager.gameManager.isGameOver = true;
                 StartCoroutine(LoadPanelLevelComplete());
             }
             Die();
@@ -110,15 +114,14 @@ public class Animal : AnimalData, ITakeDamage
     private IEnumerator LoadPanelLevelComplete()
     {
         yield return new WaitForSeconds(1.5f);
-        ReferenceManager.Instance.panelGame.gameObject.SetActive(false);
-        GameObject panelLevelComplete = ReferenceManager.Instance.prefabsList.panelLevelCompletePrefab;
-        Instantiate(panelLevelComplete, UIManager.Instance.transform);
-        LevelManager.Instance.ResetLevel();
+        manager.panelGame.gameObject.SetActive(false);
+        manager.prefabsList.LoadPanel(Panel.LevelComplete,manager.uiManager.transform);
+        manager.levelManager.ResetLevel();
     }
 
     private void AttackPlayer()
     {
-        Transform playerTransform = ReferenceManager.Instance.player.transform;
+        Transform playerTransform = manager.player.transform;
         Vector3 desDirection = playerTransform.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(desDirection);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -129,7 +132,7 @@ public class Animal : AnimalData, ITakeDamage
         {
             movementSpeed = 0;
             rotationSpeed = 0;
-            if (!GameManager.Instance.isGameOver)
+            if (!manager.gameManager.isGameOver)
             {
                 animator.SetTrigger("Attack");
                 playerTransform.GetComponent<PlayerController>().TakeDamage(.05f);
@@ -142,7 +145,7 @@ public class Animal : AnimalData, ITakeDamage
         ProductData.CreateProductInDatabase(productId);
 
         transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 180), 1f).OnComplete(OncompleteCallBack);
-        GameObject deathFx = Instantiate(FXManager.Instance.deathEffect, transform.position, Quaternion.identity);
+        GameObject deathFx = Instantiate(manager.fxManager.deathEffect, transform.position, Quaternion.identity);
         Destroy(deathFx, 1.5f);
         Destroy(gameObject, 4.0f);
     }

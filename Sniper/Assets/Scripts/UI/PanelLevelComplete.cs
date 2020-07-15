@@ -11,29 +11,30 @@ public class PanelLevelComplete : MonoBehaviour
     public Button btnNext;
     public Button btnAllMyAnimal;
 
+    private Manager manager;
     private void Start()
     {
+        manager = Manager.Instance;
+
         btnNext.onClick.AddListener(() => NextCallBack());
         btnAllMyAnimal.onClick.AddListener(() => AllMyAnimalCallBack());
 
-        Level levelInfo = LevelManager.Instance.GetCurrentLevelInfo();
+        Level levelInfo = manager.levelManager.GetCurrentLevelInfo();
         txtLevelComplete.text = "Level " + (levelInfo.levelNo + 1).ToString() + " Completed";
     }
 
     private void AllMyAnimalCallBack()
     {
-        GameObject panel = ReferenceManager.Instance.prefabsList.panelAllMyAnimalPrefab;
-        Instantiate(panel, UIManager.Instance.transform);
+        Manager.Instance.prefabsList.LoadPanel(Panel.AllMyAnimal, manager.uiManager.transform);
     }
 
     private void NextCallBack()
     {
         LevelUp();
-        GameManager.Instance.isGameOver = false;
-        GameManager.Instance.isGameStarted = false;
-        UIManager.Instance.LoadPanelObjective();
+        manager.gameManager.isGameOver = false;
+        manager.gameManager.isGameStarted = false;
+        manager.uiManager.LoadPanelObjective();
         Destroy(this.gameObject);
-
     }
 
     private static void LevelUp()

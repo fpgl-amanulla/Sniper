@@ -17,17 +17,11 @@ public class Level
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
-
     public int levelToLoad = 0;
     public GameObject environment;
     public List<Level> levelList = new List<Level>();
     public GameObject animalContainer;
     public List<GameObject> allAnimal = new List<GameObject>();
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
     private void Start()
     {
@@ -36,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        PrefabsList prefabsList = ReferenceManager.Instance.prefabsList;
+        PrefabsList prefabsList = Manager.Instance.prefabsList;
 
         Level levelInfo = GetCurrentLevelInfo();
         DBProductInfo animalInfo = DBProductInfo.GetProductInfo(levelInfo.selectedAnimalId);

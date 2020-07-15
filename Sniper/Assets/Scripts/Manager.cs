@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ReferenceManager : MonoBehaviour
+public class Manager : MonoBehaviour
 {
-    public static ReferenceManager Instance = null;
+    public static Manager Instance = null;
 
     public NavMeshSurface navMeshSurface;
     public List<Transform> waypoints = new List<Transform>();
@@ -18,9 +18,11 @@ public class ReferenceManager : MonoBehaviour
     public PrefabsList prefabsList;
     [Header("Player UI")]
     public PanelGame panelGame;
-
+    [Header("Managers")]
     public GameManager gameManager;
     public UIManager uiManager;
+    public FXManager fxManager;
+    public LevelManager levelManager;
 
 
     private void Awake()

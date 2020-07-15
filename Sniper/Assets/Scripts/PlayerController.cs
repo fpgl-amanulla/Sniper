@@ -24,10 +24,13 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private bool isScopedIn = false;
 
     private bool cancelFire = false;
+
+    private Manager manager;
     private void Start()
     {
-        UIManager.Instance.ScopedInaction += ScopedIn;
-        UIManager.Instance.cancelFireAction += CancelFire;
+        manager = Manager.Instance;
+        manager.uiManager.ScopedInaction += ScopedIn;
+        manager.uiManager.cancelFireAction += CancelFire;
     }
 
     private void CancelFire()
@@ -38,8 +41,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     }
     private void OnDestroy()
     {
-        UIManager.Instance.ScopedInaction -= ScopedIn;
-        UIManager.Instance.cancelFireAction -= CancelFire;
+        manager.uiManager.ScopedInaction -= ScopedIn;
+        manager.uiManager.cancelFireAction -= CancelFire;
     }
 
     private void ScopedIn()
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     IEnumerator WaitToScopedOut()
     {
         yield return new WaitForSeconds(.35f);
-        UIManager.Instance.ScopedOut();
+        manager.uiManager.ScopedOut();
         playerCamera.gameObject.SetActive(true);
     }
 
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     {
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, 1000))
         {
-            GameObject fireEffect = Instantiate(FXManager.Instance.fireEffect, hit.point, Quaternion.identity);
+            GameObject fireEffect = Instantiate(manager.fxManager.fireEffect, hit.point, Quaternion.identity);
             Destroy(fireEffect, 2.0f);
 
             if (hit.distance > 100)
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             }
             if (hit.collider.CompareTag("Head"))
             {
-                UIManager.Instance.ShowTextFirePopUp();
+                manager.uiManager.ShowTextFirePopUp();
             }
 
             GameManager.Instance.activeEnemyFire = true;
@@ -111,7 +114,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         if (Input.GetMouseButtonDown(0))
         {
             lastPos = Input.mousePosition;
-            UIManager.Instance.DeactiveScopedBtn();
+            manager.uiManager.DeactiveScopedBtn();
         }
         else if (Input.GetMouseButton(0))
         {
@@ -140,18 +143,18 @@ public class PlayerController : MonoBehaviour, ITakeDamage
                 }
             }
             cancelFire = false;
-            UIManager.Instance.NormalScopedBtn();
+            manager.uiManager.NormalScopedBtn();
         }
     }
 
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        ReferenceManager.Instance.panelGame.UpdateHealthBar(health);
+        manager.panelGame.UpdateHealthBar(health);
         if (health <= 0)
         {
             GameManager.Instance.isGameOver = true;
-            UIManager.Instance.WeaponUISetActive(false);
+            manager.uiManager.WeaponUISetActive(false);
             playerCamera.gameObject.SetActive(false);
             StartCoroutine(LoadLevelfailedPanel());
         }
@@ -160,9 +163,9 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     IEnumerator LoadLevelfailedPanel()
     {
         yield return new WaitForSeconds(2.0f);
-        GameObject panelLevelfailed = ReferenceManager.Instance.prefabsList.panelLevelFailedPrefab;
-        Instantiate(panelLevelfailed, UIManager.Instance.transform);
-        LevelManager.Instance.ResetLevel();
+        GameObject panelLevelfailed = manager.prefabsList.panelLevelFailedPrefab;
+        Instantiate(panelLevelfailed, manager.uiManager.transform);
+        manager.levelManager.ResetLevel();
 
         health = 10;
     }

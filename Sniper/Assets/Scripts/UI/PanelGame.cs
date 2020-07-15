@@ -15,8 +15,8 @@ public class PanelGame : MonoBehaviour
     Level levelInfo;
     public void InitPanelGame()
     {
-        levelInfo = LevelManager.Instance.GetCurrentLevelInfo();
-        GameManager.Instance.ResetKillCout();
+        levelInfo = Manager.Instance.levelManager.GetCurrentLevelInfo();
+        Manager.Instance.gameManager.ResetKillCout();
         UpdateLevel();
         UpdateKillCount();
         UpdateHealthBar(10);
@@ -31,7 +31,7 @@ public class PanelGame : MonoBehaviour
 
     public void UpdateKillCount()
     {
-        string count = GameManager.Instance.killCount.ToString();
+        string count = Manager.Instance.gameManager.killCount.ToString();
         txtKillCount.text = "Objectives Completed: " + count + "/" + levelInfo.animalToHunt;
     }
     public void UpdateHealthBar(float currentHealth)

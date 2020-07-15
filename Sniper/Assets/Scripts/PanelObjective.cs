@@ -13,9 +13,12 @@ public class PanelObjective : MonoBehaviour
     public Button btnPlay;
 
     private GameObject playerCamera;
+
+    private Manager manager;
     private void Start()
     {
-        playerCamera = ReferenceManager.Instance.playerCamera;
+        manager = Manager.Instance;
+        playerCamera = Manager.Instance.playerCamera;
         btnPlay.onClick.AddListener(() => PlayCallBack());
         InitPanelObjective();
     }
@@ -29,13 +32,13 @@ public class PanelObjective : MonoBehaviour
 
     private void PlayCallBack()
     {
-        ReferenceManager.Instance.panelGame.gameObject.SetActive(true);
-        ReferenceManager.Instance.panelGame.playerHealthBar.SetActive(true);
-        ReferenceManager.Instance.panelGame.InitPanelGame();
-        UIManager.Instance.weaponUI.SetActive(true);
+        manager.panelGame.gameObject.SetActive(true);
+        manager.panelGame.playerHealthBar.SetActive(true);
+        manager.panelGame.InitPanelGame();
+        manager.uiManager.weaponUI.SetActive(true);
         playerCamera.SetActive(true);
-        GameManager.Instance.isGameStarted = true;
-        LevelManager.Instance.LoadLevel();
+        manager.gameManager.isGameStarted = true;
+        manager.levelManager.LoadLevel();
         Destroy(this.gameObject);
     }
 
@@ -43,7 +46,7 @@ public class PanelObjective : MonoBehaviour
     {
         playerCamera.SetActive(false);
 
-        Level levelInfo = LevelManager.Instance.GetCurrentLevelInfo();
+        Level levelInfo = manager.levelManager.GetCurrentLevelInfo();
 
         txtLevelNo.text = "level " + (levelInfo.levelNo + 1).ToString();
 

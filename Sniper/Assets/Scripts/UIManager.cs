@@ -9,24 +9,25 @@ using UnityEngine.UI;
 
 public class UIManager : WeaponUI
 {
-    public static UIManager Instance;
-
+    private Manager manager;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-
-        AppDelegate appDelegate = AppDelegate.SharedManager();
+        AppDelegate.SharedManager();
         ProductData.ReloadProductData();
+    }
 
-        ReferenceManager.Instance.panelGame.gameObject.SetActive(false);
+    private void Start()
+    {
+        manager = Manager.Instance;
+        manager.panelGame.gameObject.SetActive(false);
         LoadPanelObjective();
     }
 
     public void LoadPanelObjective()
     {
         weaponUI.SetActive(false);
-        ReferenceManager.Instance.prefabsList.LoadPanel(Panel.Objectives, this.transform);
+        manager.prefabsList.LoadPanel(Panel.Objectives, this.transform);
     }
 
     public void Restart()

@@ -8,16 +8,18 @@ public class PanelLevelFailed : MonoBehaviour
 {
     public Button btnRestart;
 
+    private Manager manager;
     void Start()
     {
+        manager = Manager.Instance;
         btnRestart.onClick.AddListener(() => RestartCallBack());
     }
 
     private void RestartCallBack()
     {
-        GameManager.Instance.isGameOver = false;
-        GameManager.Instance.isGameStarted = false;
-        UIManager.Instance.LoadPanelObjective();
+        manager.gameManager.isGameOver = false;
+        manager.gameManager.isGameStarted = false;
+        manager.uiManager.LoadPanelObjective();
         Destroy(this.gameObject);
     }
 

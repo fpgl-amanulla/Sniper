@@ -31,4 +31,40 @@ public class PrefabsList : ScriptableObject
         }
         return allAnimalPrefabs[0];
     }
+
+    public GameObject LoadPanel(Panel panel, Transform transform = null)
+    {
+
+        GameObject gPanel = null;
+        switch (panel)
+        {
+            case Panel.LevelComplete:
+                if (transform)
+                    gPanel = Instantiate(panelLevelCompletePrefab, transform);
+                else
+                    gPanel = Instantiate(panelLevelCompletePrefab);
+                break;
+            case Panel.LevelFailed:
+                if (transform)
+                    gPanel = Instantiate(panelLevelFailedPrefab, transform);
+                else
+                    gPanel = Instantiate(panelLevelFailedPrefab);
+                break;
+            case Panel.AllMyAnimal:
+                if (transform)
+                    gPanel = Instantiate(panelAllMyAnimalPrefab, transform);
+                else
+                    gPanel = Instantiate(panelAllMyAnimalPrefab);
+                break;
+            case Panel.Objectives:
+                if (transform)
+                    gPanel = Instantiate(panelObjectivePrefab, transform);
+                else
+                    gPanel = Instantiate(panelObjectivePrefab);
+                break;
+            default:
+                break;
+        }
+        return gPanel;
+    }
 }

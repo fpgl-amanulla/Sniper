@@ -19,6 +19,10 @@ public class ReferenceManager : MonoBehaviour
     [Header("Player UI")]
     public PanelGame panelGame;
 
+    public GameManager gameManager;
+    public UIManager uiManager;
+
+
     private void Awake()
     {
         if (Instance == null)

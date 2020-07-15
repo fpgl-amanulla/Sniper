@@ -24,10 +24,10 @@ public class ProductData
         return true;
     }
 
-    public static ProductData Create(int my_productId)
+    public static ProductData Create(int productId)
     {
         ProductData ret = new ProductData();
-        if (ret != null && ret.Init(my_productId))
+        if (ret != null && ret.Init(productId))
         {
             return ret;
         }
@@ -36,17 +36,17 @@ public class ProductData
             return null;
         }
     }
-    public bool Init(int my_productId)
+    public bool Init(int productId)
     {
-        myProduct = DBMyProduct.Create(my_productId);
-        productInfo = DBProductInfo.GetProductInfo(my_productId);
+        myProduct = DBMyProduct.Create(productId);
+        productInfo = DBProductInfo.GetProductInfo(productId);
         return true;
     }
-    public static void AddProductData(int my_productId)
+    public static void AddProductData(int _productId)
     {
         AppDelegate appDelegate = AppDelegate.SharedManager();
 
-        ProductData productData = ProductData.Create(my_productId);
+        ProductData productData = ProductData.Create(_productId);
         appDelegate.allProductData.Add(productData);
     }
 

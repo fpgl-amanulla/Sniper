@@ -26,8 +26,7 @@ public class UIManager : WeaponUI
     public void LoadPanelObjective()
     {
         weaponUI.SetActive(false);
-        GameObject panel = ReferenceManager.Instance.prefabsList.panelObjectivePrefab;
-        Instantiate(panel, this.transform);
+        ReferenceManager.Instance.prefabsList.LoadPanel(Panel.Objectives, this.transform);
     }
 
     public void Restart()

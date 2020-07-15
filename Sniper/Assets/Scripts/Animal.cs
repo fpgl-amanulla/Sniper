@@ -139,6 +139,8 @@ public class Animal : AnimalData, ITakeDamage
 
     private void Die()
     {
+        ProductData.CreateProductInDatabase(productId);
+
         transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 180), 1f).OnComplete(OncompleteCallBack);
         GameObject deathFx = Instantiate(FXManager.Instance.deathEffect, transform.position, Quaternion.identity);
         Destroy(deathFx, 1.5f);

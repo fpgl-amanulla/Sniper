@@ -17,6 +17,7 @@ public class UIManager : WeaponUI
         if (Instance == null) Instance = this;
 
         AppDelegate appDelegate = AppDelegate.SharedManager();
+        ProductData.ReloadProductData();
 
         ReferenceManager.Instance.panelGame.gameObject.SetActive(false);
         LoadPanelObjective();

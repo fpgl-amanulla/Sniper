@@ -1,7 +1,11 @@
 ﻿
+using System.Collections.Generic;
+
 public class AppDelegate
 {
     public static AppDelegate Instance = null;
+
+    public List<ProductData> allProductData = new List<ProductData>();
 
     public static AppDelegate SharedManager()
     {
@@ -43,4 +47,5 @@ public class AppDelegate
         userInfo.level = 0;
         userInfo.last_visited = 0;
     }
+
 }

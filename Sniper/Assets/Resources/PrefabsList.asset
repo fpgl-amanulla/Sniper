@@ -38,3 +38,5 @@ MonoBehaviour:
     type: 3}
   panelLevelFailedPrefab: {fileID: 3467365993457634944, guid: ca23ad1de2492774bb422eb384dee438,
     type: 3}
+  panelAllMyAnimalPrefab: {fileID: 6445406732584279454, guid: 2bcfa316db55deb4983a0f00cc3d27db,
+    type: 3}

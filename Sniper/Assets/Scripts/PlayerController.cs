@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     private void Update()
     {
-        if (!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver && GameManager.Instance.isGameStarted)
         {
             if (Application.isEditor)
             {
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        ReferenceManager.Instance.playerUI.UpdateHealthBar(health);
+        ReferenceManager.Instance.panelGame.UpdateHealthBar(health);
         if (health <= 0)
         {
             GameManager.Instance.isGameOver = true;

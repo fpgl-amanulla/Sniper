@@ -619,7 +619,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194225}
   playerCamera: {fileID: 1502035104}
   prefabsList: {fileID: 11400000, guid: df6b6e578fde7d043bf3f5e4a6e05ba5, type: 2}
-  playerUI: {fileID: 447297931}
+  panelGame: {fileID: 447297931}
 --- !u!114 &212516616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 447297930}
   - component: {fileID: 447297931}
   m_Layer: 5
-  m_Name: PlayerUI
+  m_Name: PanelGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2073,7 +2073,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 9, y: -90.2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 220, y: 65}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &889060632
 GameObject:

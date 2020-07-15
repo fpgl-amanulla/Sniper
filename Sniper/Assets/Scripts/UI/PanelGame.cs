@@ -4,26 +4,35 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+public class PanelGame : MonoBehaviour
 {
     public GameObject playerHealthBar;
     public Image imgFill;
 
     public TextMeshProUGUI txtLevelNo;
     public TextMeshProUGUI txtKillCount;
-    private void OnEnable()
+
+    Level levelInfo;
+    public void InitPanelGame()
     {
+        levelInfo = LevelManager.Instance.GetCurrentLevelInfo();
+        GameManager.Instance.ResetKillCout();
+        UpdateLevel();
+        UpdateKillCount();
+        UpdateHealthBar(10);
+
         imgFill.fillAmount = 1;
     }
 
     public void UpdateLevel()
     {
-        txtLevelNo.text = "Level " + (LevelManager.Instance.GetCurrentLevelInfo().levelNo + 1).ToString();
+        txtLevelNo.text = "Level " + (levelInfo.levelNo + 1).ToString();
     }
 
     public void UpdateKillCount()
     {
-        txtKillCount.text = "Objectives Completed: " + GameManager.Instance.killCount.ToString();
+        string count = GameManager.Instance.killCount.ToString();
+        txtKillCount.text = "Objectives Completed: " + count + "/" + levelInfo.animalToHunt;
     }
     public void UpdateHealthBar(float currentHealth)
     {

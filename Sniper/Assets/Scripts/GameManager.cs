@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     public bool isGameOver { get; set; }
+    public bool isGameStarted { get; set; }
     public bool activeEnemyFire { get; set; }
 
     public int killCount { get; set; }
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         isGameOver = false;
+        isGameStarted = false;
         activeEnemyFire = false;
     }
 

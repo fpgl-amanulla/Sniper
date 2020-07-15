@@ -17,7 +17,7 @@ public class ReferenceManager : MonoBehaviour
     [Header("Prefabs List")]
     public PrefabsList prefabsList;
     [Header("Player UI")]
-    public PlayerUI playerUI;
+    public PanelGame panelGame;
 
     private void Awake()
     {

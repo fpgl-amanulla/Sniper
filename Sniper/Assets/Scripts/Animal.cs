@@ -89,12 +89,11 @@ public class Animal : AnimalData, ITakeDamage
             movementSpeed = 0;
             rotationSpeed = 0;
             GameManager.Instance.killCount++;
-            ReferenceManager.Instance.playerUI.UpdateKillCount();
+            ReferenceManager.Instance.panelGame.UpdateKillCount();
             if (GameManager.Instance.killCount >= LevelManager.Instance.GetCurrentLevelInfo().animalToHunt)
             {
-                GameManager.Instance.isGameOver = true;
-                GameManager.Instance.ResetKillCout();
                 Debug.Log("Level Complete");
+                GameManager.Instance.isGameOver = true;
                 StartCoroutine(LoadPanelLevelComplete());
             }
             Die();
@@ -111,8 +110,8 @@ public class Animal : AnimalData, ITakeDamage
 
     private IEnumerator LoadPanelLevelComplete()
     {
-        yield return new WaitForSeconds(1.0f);
-        ReferenceManager.Instance.playerUI.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        ReferenceManager.Instance.panelGame.gameObject.SetActive(false);
         GameObject panelLevelComplete = ReferenceManager.Instance.prefabsList.panelLevelCompletePrefab;
         Instantiate(panelLevelComplete, UIManager.Instance.transform);
         LevelManager.Instance.ResetLevel();
@@ -142,6 +141,6 @@ public class Animal : AnimalData, ITakeDamage
     private void Die()
     {
         transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 180), 1f);
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 2.0f);
     }
 }

@@ -29,14 +29,14 @@ public class PanelObjective : MonoBehaviour
 
     private void PlayCallBack()
     {
-        ReferenceManager.Instance.playerUI.UpdateLevel();
-        ReferenceManager.Instance.playerUI.UpdateKillCount();
+        ReferenceManager.Instance.panelGame.gameObject.SetActive(true);
+        ReferenceManager.Instance.panelGame.playerHealthBar.SetActive(true);
+        ReferenceManager.Instance.panelGame.InitPanelGame();
         UIManager.Instance.weaponUI.SetActive(true);
-        ReferenceManager.Instance.playerUI.gameObject.SetActive(true);
         playerCamera.SetActive(true);
+        GameManager.Instance.isGameStarted = true;
         LevelManager.Instance.LoadLevel();
         Destroy(this.gameObject);
-        //this.gameObject.SetActive(false);
     }
 
     public void InitPanelObjective()

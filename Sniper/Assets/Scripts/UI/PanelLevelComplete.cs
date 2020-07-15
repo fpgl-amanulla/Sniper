@@ -22,6 +22,7 @@ public class PanelLevelComplete : MonoBehaviour
     {
         LevelUp();
         GameManager.Instance.isGameOver = false;
+        GameManager.Instance.isGameStarted = false;
         UIManager.Instance.LoadPanelObjective();
         Destroy(this.gameObject);
 

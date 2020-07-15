@@ -18,8 +18,7 @@ public class UIManager : WeaponUI
 
         AppDelegate appDelegate = AppDelegate.SharedManager();
 
-        weaponUI.SetActive(false);
-        ReferenceManager.Instance.playerUI.gameObject.SetActive(false);
+        ReferenceManager.Instance.panelGame.gameObject.SetActive(false);
         LoadPanelObjective();
     }
 

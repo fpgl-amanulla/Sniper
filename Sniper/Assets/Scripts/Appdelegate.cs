@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 public class AppDelegate
 {
     public static AppDelegate Instance = null;
@@ -30,7 +26,6 @@ public class AppDelegate
     private bool Init()
     {
         DBUserInfo userInfo = DBUserInfo.Create(1);
-        Debug.Log(userInfo.UDID);
         if (userInfo == null || userInfo.UDID != "user")
         {
             SetDefaults(userInfo);

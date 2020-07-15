@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             rotX -= deltaPos.y * speed * Time.deltaTime;
             rotY -= deltaPos.x * speed * Time.deltaTime * -1;
 
-            rotX = Mathf.Clamp(rotX, -5, 10);
+            rotX = Mathf.Clamp(rotX, -25, 15);
             rotY = Mathf.Clamp(rotY, -50, 50);
 
             mainCamera.transform.localRotation = Quaternion.Euler(rotX, 0, 0);
@@ -163,5 +163,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         GameObject panelLevelfailed = ReferenceManager.Instance.prefabsList.panelLevelFailedPrefab;
         Instantiate(panelLevelfailed, UIManager.Instance.transform);
         LevelManager.Instance.ResetLevel();
+
+        health = 10;
     }
 }

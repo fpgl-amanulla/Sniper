@@ -45,12 +45,15 @@ public class LevelManager : MonoBehaviour
         {
             GameObject newAnimal = Instantiate(prefabsList.GetAnimalPrefeb(levelInfo.selectedAnimalId));
             newAnimal.AddComponent<Animal>();
+            string strMatPath = "Animal/" + animalInfo.productid + "/" + animalInfo.productid + "b";
+            Material mat = Resources.Load<Material>(strMatPath);
+            newAnimal.GetComponentInChildren<SkinnedMeshRenderer>().material = mat;
             Animal animal = newAnimal.GetComponent<Animal>();
             animal.productId = animalInfo.productid;
             animal.productName = animalInfo.product_name;
             animal.health = float.Parse(animalInfo.health);
 
-            Vector3 position = new Vector3(Random.Range(-50, 50), 0, Random.Range(-30, 50));
+            Vector3 position = new Vector3(Random.Range(-50, 50), Random.Range(0, 40), Random.Range(-30, 50));
             newAnimal.transform.SetParent(animalContainer.transform);
             newAnimal.transform.localPosition = position;
 

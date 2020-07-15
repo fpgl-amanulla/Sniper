@@ -54,7 +54,6 @@ public class Animal : AnimalData, ITakeDamage
     private void Move()
     {
         Vector3 desDirection = destination - transform.position;
-        desDirection.y = 0;
 
         float desDistance = desDirection.magnitude;
 

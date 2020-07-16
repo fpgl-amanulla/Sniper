@@ -6,8 +6,16 @@ using System.Management.Instrumentation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum AnimalType
+{
+    Big,
+    Small
+}
+
+
 public class Animal : AnimalData, ITakeDamage
 {
+    public AnimalType animalType;
     private Animator animator;
     public float movementSpeed;
     public float rotationSpeed;
@@ -33,9 +41,12 @@ public class Animal : AnimalData, ITakeDamage
 
     private void InitAnimalData()
     {
-        AnimalCanvas canvas = Resources.Load<PrefabsList>("PrefabsList").animalCanvasPrefab;
-        animalCanvas = Instantiate(canvas, this.transform);
-        animalCanvas.InitAnimalCanvas(this);
+        if (animalType == AnimalType.Big)
+        {
+            AnimalCanvas canvas = Resources.Load<PrefabsList>("PrefabsList").animalCanvasPrefab;
+            animalCanvas = Instantiate(canvas, this.transform);
+            animalCanvas.InitAnimalCanvas(this);
+        }
         //animalCanvas.InitAnimalCanvas(health, productName);
         movementSpeed = Random.Range(4, 7);
         rotationSpeed = Random.Range(100, 120);
@@ -83,31 +94,38 @@ public class Animal : AnimalData, ITakeDamage
 
     public void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
-        animalCanvas.UpadateHealthBar(health);
-        if (health <= 0)
+        if (animalType == AnimalType.Big)
         {
-            isDied = true;
-            animalCanvas.gameObject.SetActive(false);
-            movementSpeed = 0;
-            rotationSpeed = 0;
-            manager.gameManager.killCount++;
-            manager.panelGame.UpdateKillCount();
-            if (manager.gameManager.killCount >= manager.levelManager.GetCurrentLevelInfo().animalToHunt)
+            health -= damageAmount;
+            animalCanvas.UpadateHealthBar(health);
+            if (health <= 0)
             {
-                Debug.Log("Level Complete");
-                manager.gameManager.isGameOver = true;
-                StartCoroutine(LoadPanelLevelComplete());
+                isDied = true;
+                animalCanvas.gameObject.SetActive(false);
+                movementSpeed = 0;
+                rotationSpeed = 0;
+                manager.gameManager.killCount++;
+                manager.panelGame.UpdateKillCount();
+                if (manager.gameManager.killCount >= manager.levelManager.GetCurrentLevelInfo().animalToHunt)
+                {
+                    Debug.Log("Level Complete");
+                    manager.gameManager.isGameOver = true;
+                    StartCoroutine(LoadPanelLevelComplete());
+                }
+                Die();
             }
-            Die();
+            else
+            {
+                isAttacking = true;
+                transform.DOShakePosition(1.0f);
+                transform.DOShakeScale(.1f);
+                movementSpeed += Random.Range(8, 10);
+                rotationSpeed += Random.Range(150, 200);
+            }
         }
         else
         {
-            isAttacking = true;
-            transform.DOShakePosition(1.0f);
-            transform.DOShakeScale(.1f);
-            movementSpeed += Random.Range(8, 10);
-            rotationSpeed += Random.Range(150, 200);
+            Die();
         }
     }
 
@@ -115,7 +133,7 @@ public class Animal : AnimalData, ITakeDamage
     {
         yield return new WaitForSeconds(1.5f);
         manager.panelGame.gameObject.SetActive(false);
-        manager.prefabsList.LoadPanel(Panel.LevelComplete,manager.uiManager.transform);
+        manager.prefabsList.LoadPanel(Panel.LevelComplete, manager.uiManager.transform);
         manager.levelManager.ResetLevel();
     }
 

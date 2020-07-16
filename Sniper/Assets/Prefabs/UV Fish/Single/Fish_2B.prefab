@@ -80,12 +80,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  productName: 
+  productId: 0
   movementSpeed: 0
   rotationSpeed: 0
   stopDistance: 0
   destination: {x: 0, y: 0, z: 0}
   reachedDestination: 0
   waypoints: []
+  animalCanvas: {fileID: 0}
 --- !u!1 &4990594614301988862
 GameObject:
   m_ObjectHideFlags: 0

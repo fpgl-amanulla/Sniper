@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
         LoadPanelStart();
     }
 
-    private void LoadPanelStart()
+    public void LoadPanelStart()
     {
         weaponUI.SetActive(false);
         manager.panelGame.gameObject.SetActive(false);

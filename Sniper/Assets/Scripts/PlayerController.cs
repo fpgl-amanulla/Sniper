@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     IEnumerator LoadLevelfailedPanel()
     {
         yield return new WaitForSeconds(2.0f);
+        manager.panelGame.gameObject.SetActive(false);
         GameObject panelLevelfailed = manager.prefabsList.panelLevelFailedPrefab;
         Instantiate(panelLevelfailed, manager.uiManager.transform);
         manager.levelManager.ResetLevel();

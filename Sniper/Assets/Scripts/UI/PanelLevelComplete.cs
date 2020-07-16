@@ -33,7 +33,7 @@ public class PanelLevelComplete : MonoBehaviour
         LevelUp();
         manager.gameManager.isGameOver = false;
         manager.gameManager.isGameStarted = false;
-        manager.uiManager.LoadPanelObjective();
+        manager.uiManager.LoadPanelStart();
         Destroy(this.gameObject);
     }
 

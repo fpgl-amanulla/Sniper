@@ -56,7 +56,6 @@ public class ProductData
 
         DBMyProduct myProduct = DBMyProduct.Create(productId);
 
-        Debug.Log(myProduct);
         //Debug.Log(myProduct.productid);
 
         if (myProduct == null)

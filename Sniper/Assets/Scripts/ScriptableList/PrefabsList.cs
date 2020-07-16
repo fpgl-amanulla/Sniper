@@ -20,6 +20,11 @@ public class PrefabsList : ScriptableObject
     [Header("Panel AllMyAnimalPrefab")]
     public GameObject panelAllMyAnimalPrefab;
 
+    private void OnEnable()
+    {
+
+    }
+
     public GameObject GetAnimalPrefeb(int productId)
     {
         for (int i = 0; i < allAnimalPrefabs.Count; i++)

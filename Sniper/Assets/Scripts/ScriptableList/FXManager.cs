@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FXManager : MonoBehaviour
+[CreateAssetMenu(fileName = "FxManager", menuName = "New FxManager")]
+public class FXManager : ScriptableObject
 {
     public GameObject fireEffect;
     public GameObject deathEffect;

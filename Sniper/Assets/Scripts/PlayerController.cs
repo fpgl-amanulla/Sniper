@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     public Camera mainCamera;
     public Camera playerCamera;
+    public WeaponUI weaponUI;
 
     public float scopedInFOV = 15f;
     public float normalFOV = 60;
@@ -29,8 +30,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private void Start()
     {
         manager = Manager.Instance;
-        manager.uiManager.ScopedInaction += ScopedIn;
-        manager.uiManager.cancelFireAction += CancelFire;
+        weaponUI.ScopedInaction += ScopedIn;
+        weaponUI.cancelFireAction += CancelFire;
     }
 
     private void CancelFire()
@@ -41,8 +42,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     }
     private void OnDestroy()
     {
-        manager.uiManager.ScopedInaction -= ScopedIn;
-        manager.uiManager.cancelFireAction -= CancelFire;
+        weaponUI.ScopedInaction -= ScopedIn;
+        weaponUI.cancelFireAction -= CancelFire;
     }
 
     private void ScopedIn()
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     IEnumerator WaitToScopedOut()
     {
         yield return new WaitForSeconds(.35f);
-        manager.uiManager.ScopedOut();
+        weaponUI.ScopedOut();
         playerCamera.gameObject.SetActive(true);
     }
 
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             }
             if (hit.collider.CompareTag("Head"))
             {
-                manager.uiManager.ShowTextFirePopUp();
+                weaponUI.ShowTextFirePopUp();
             }
 
             GameManager.Instance.activeEnemyFire = true;
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         if (Input.GetMouseButtonDown(0))
         {
             lastPos = Input.mousePosition;
-            manager.uiManager.DeactiveScopedBtn();
+            weaponUI.DeactiveScopedBtn();
         }
         else if (Input.GetMouseButton(0))
         {
@@ -143,7 +144,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
                 }
             }
             cancelFire = false;
-            manager.uiManager.NormalScopedBtn();
+            weaponUI.NormalScopedBtn();
         }
     }
 
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         if (health <= 0)
         {
             GameManager.Instance.isGameOver = true;
-            manager.uiManager.WeaponUISetActive(false);
+            weaponUI.WeaponUISetActive(false);
             playerCamera.gameObject.SetActive(false);
             StartCoroutine(LoadLevelfailedPanel());
         }

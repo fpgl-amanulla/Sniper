@@ -16,12 +16,13 @@ public class Manager : MonoBehaviour
 
     [Header("Prefabs List")]
     public PrefabsList prefabsList;
+    [Header("FX Manager")]
+    public FXManager fxManager;
     [Header("Player UI")]
     public PanelGame panelGame;
     [Header("Managers")]
     public GameManager gameManager;
     public UIManager uiManager;
-    public FXManager fxManager;
     public LevelManager levelManager;
 
 

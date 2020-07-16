@@ -1,16 +1,11 @@
-﻿using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : WeaponUI
+public class UIManager : MonoBehaviour
 {
     private Manager manager;
-
+    public GameObject weaponUI;
     private void Awake()
     {
         AppDelegate.SharedManager();

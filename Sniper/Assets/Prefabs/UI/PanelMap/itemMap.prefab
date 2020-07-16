@@ -29,7 +29,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2506741716917323165}
+  m_Father: {fileID: 8908460494551646388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -186,7 +186,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2506741716917323165}
+  m_Father: {fileID: 8908460494551646388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -282,8 +282,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2506741716917323165}
+  - component: {fileID: 8908460494551646388}
   - component: {fileID: 3008313504749040401}
+  - component: {fileID: 8653780777134317114}
   m_Layer: 5
   m_Name: itemMap
   m_TagString: Untagged
@@ -291,7 +292,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2506741716917323165
+--- !u!224 &8908460494551646388
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,3 +327,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtMapName: {fileID: 7853385279077553299}
   btnItem: {fileID: 912125471858461816}
+--- !u!222 &8653780777134317114
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445109900037628507}
+  m_CullTransparentMesh: 0

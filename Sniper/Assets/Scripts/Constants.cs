@@ -9,10 +9,12 @@ public interface ITakeDamage
 
 public enum Panel
 {
-    LevelComplete = 101,
-    LevelFailed = 102,
-    AllMyAnimal = 103,
-    Objectives = 104
+    Start,
+    Map,
+    LevelComplete,
+    LevelFailed,
+    AllMyAnimal,
+    Objectives,
 }
 public static class Constants
 {

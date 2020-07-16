@@ -33,7 +33,6 @@ public class PanelObjective : MonoBehaviour
     private void PlayCallBack()
     {
         manager.panelGame.gameObject.SetActive(true);
-        manager.panelGame.playerHealthBar.SetActive(true);
         manager.panelGame.InitPanelGame();
         manager.uiManager.weaponUI.SetActive(true);
         playerCamera.SetActive(true);

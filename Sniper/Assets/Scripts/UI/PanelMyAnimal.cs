@@ -13,7 +13,7 @@ public class PanelMyAnimal : MonoBehaviour
     private List<ProductData> allProductData = new List<ProductData>();
     private void Start()
     {
-        AppDelegate appDelegate = AppDelegate.SharedManager();
+        AppDelegate appDelegate = AppDelegate.sharedManager();
         allProductData = appDelegate.allProductData;
         btnCross.onClick.AddListener(() => CrossCallback());
         InitItem();

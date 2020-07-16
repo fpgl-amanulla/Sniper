@@ -15,16 +15,14 @@ public class PrefabsList : ScriptableObject
     public GameObject panelObjectivePrefab;
     [Header("Panel Level Complete")]
     public GameObject panelLevelCompletePrefab;
+    [Header("Panel Start")]
+    public GameObject panelStartPrefab;
+    [Header("Panel Map")]
+    public GameObject panelMapPrefab;
     [Header("Panel Level Failed")]
     public GameObject panelLevelFailedPrefab;
     [Header("Panel AllMyAnimalPrefab")]
     public GameObject panelAllMyAnimalPrefab;
-
-    private void OnEnable()
-    {
-
-    }
-
     public GameObject GetAnimalPrefeb(int productId)
     {
         for (int i = 0; i < allAnimalPrefabs.Count; i++)
@@ -43,6 +41,18 @@ public class PrefabsList : ScriptableObject
         GameObject gPanel = null;
         switch (panel)
         {
+            case Panel.Start:
+                if (transform)
+                    gPanel = Instantiate(panelStartPrefab, transform);
+                else
+                    gPanel = Instantiate(panelStartPrefab);
+                break;
+            case Panel.Map:
+                if (transform)
+                    gPanel = Instantiate(panelMapPrefab, transform);
+                else
+                    gPanel = Instantiate(panelStartPrefab);
+                break;
             case Panel.LevelComplete:
                 if (transform)
                     gPanel = Instantiate(panelLevelCompletePrefab, transform);

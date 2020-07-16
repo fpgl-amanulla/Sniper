@@ -44,7 +44,7 @@ public class ProductData
     }
     public static void AddProductData(int _productId)
     {
-        AppDelegate appDelegate = AppDelegate.SharedManager();
+        AppDelegate appDelegate = AppDelegate.sharedManager();
 
         ProductData productData = ProductData.Create(_productId);
         appDelegate.allProductData.Add(productData);
@@ -87,7 +87,7 @@ public class ProductData
 
     public static void ReloadProductData()
     {
-        AppDelegate appDelegate = AppDelegate.SharedManager();
+        AppDelegate appDelegate = AppDelegate.sharedManager();
         appDelegate.allProductData.Clear();
 
         IEnumerable<my_product> ieumAllMyProduct = DatabaseManager.sharedManager().databaseDocument.Table<my_product>();

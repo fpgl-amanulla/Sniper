@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,15 +9,21 @@ public class UIManager : MonoBehaviour
     public GameObject weaponUI;
     private void Awake()
     {
-        AppDelegate.SharedManager();
+        AppDelegate.sharedManager();
         ProductData.ReloadProductData();
     }
 
     private void Start()
     {
         manager = Manager.Instance;
+        LoadPanelStart();
+    }
+
+    private void LoadPanelStart()
+    {
+        weaponUI.SetActive(false);
         manager.panelGame.gameObject.SetActive(false);
-        LoadPanelObjective();
+        manager.prefabsList.LoadPanel(Panel.Start, this.transform);
     }
 
     public void LoadPanelObjective()

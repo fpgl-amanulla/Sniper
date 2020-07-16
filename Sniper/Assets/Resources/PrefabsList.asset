@@ -36,6 +36,10 @@ MonoBehaviour:
     type: 3}
   panelLevelCompletePrefab: {fileID: 3467365993457634944, guid: 804d32f4a31bbe844a807a36f3cd7b7e,
     type: 3}
+  panelStartPrefab: {fileID: 906522711557122338, guid: 0fb1e525b7ee63f4c99d7804fac4abcd,
+    type: 3}
+  panelMapPrefab: {fileID: 1180095888894946121, guid: 20be69020747e8249954982a7fafa347,
+    type: 3}
   panelLevelFailedPrefab: {fileID: 3467365993457634944, guid: ca23ad1de2492774bb422eb384dee438,
     type: 3}
   panelAllMyAnimalPrefab: {fileID: 6445406732584279454, guid: 2bcfa316db55deb4983a0f00cc3d27db,

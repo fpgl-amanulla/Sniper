@@ -1,13 +1,14 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 public class AppDelegate
 {
     public static AppDelegate Instance = null;
-
     public List<ProductData> allProductData = new List<ProductData>();
+    public List<ProductLandData> allProductLandData = new List<ProductLandData>();
 
-    public static AppDelegate SharedManager()
+    public static AppDelegate sharedManager()
     {
         if (Instance == null)
             Instance = AppDelegate.Create();
@@ -48,4 +49,17 @@ public class AppDelegate
         userInfo.last_visited = 0;
     }
 
+    public static string[] ComponentsSeparatedByString(string _string, string separator)
+    {
+        string[] arrSeparator = { separator };
+        string[] arrString = _string.Split(arrSeparator, System.StringSplitOptions.RemoveEmptyEntries);
+
+        return arrString;
+    }
+
+    public static int GetTime()
+    {
+        int timestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        return timestamp;
+    }
 }

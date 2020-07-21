@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     private bool cancelFire = false;
 
-    private Manager manager;
+    private MasterManager manager;
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         weaponUI.ScopedInaction += ScopedIn;
         weaponUI.cancelFireAction += CancelFire;
     }

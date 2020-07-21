@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private Manager manager;
+    private MasterManager manager;
     public GameObject weaponUI;
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         LoadPanelStart();
     }
 

@@ -8,10 +8,10 @@ public class PanelLevelFailed : MonoBehaviour
 {
     public Button btnRestart;
 
-    private Manager manager;
+    private MasterManager manager;
     void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         btnRestart.onClick.AddListener(() => RestartCallBack());
     }
 

@@ -10,16 +10,16 @@ public class ItemMap : MonoBehaviour
     public TextMeshProUGUI txtMapName;
     public Button btnItem;
 
-    private Manager manager;
+    private MasterManager manager;
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         btnItem.onClick.AddListener(() => ItemCallBack());
     }
 
     private void ItemCallBack()
     {
-        Manager.Instance.prefabsList.LoadPanel(Panel.Objectives, Manager.Instance.uiManager.transform);
+        MasterManager.Instance.prefabsList.LoadPanel(Panel.Objectives, MasterManager.Instance.uiManager.transform);
         Destroy(PanelStart.panelStart);
         Destroy(PanelMap.panelMap);
     }

@@ -14,11 +14,11 @@ public class PanelObjective : MonoBehaviour
 
     private GameObject playerCamera;
 
-    private Manager manager;
+    private MasterManager manager;
     private void Start()
     {
-        manager = Manager.Instance;
-        playerCamera = Manager.Instance.playerCamera;
+        manager = MasterManager.Instance;
+        playerCamera = MasterManager.Instance.playerCamera;
         btnPlay.onClick.AddListener(() => PlayCallBack());
         InitPanelObjective();
     }

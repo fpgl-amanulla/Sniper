@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Manager : MonoBehaviour
+public class MasterManager : MonoBehaviour
 {
-    public static Manager Instance = null;
+    public static MasterManager Instance = null;
 
     public NavMeshSurface navMeshSurface;
     public List<Transform> waypoints = new List<Transform>();
@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
 
     [Header("Prefabs List")]
     public PrefabsList prefabsList;
-    [Header("FX Manager")]
+    [Header("FX MasterManager")]
     public FXManager fxManager;
     [Header("Player UI")]
     public PanelGame panelGame;

@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        PrefabsList prefabsList = Manager.Instance.prefabsList;
+        PrefabsList prefabsList = MasterManager.Instance.prefabsList;
 
         Level levelInfo = GetCurrentLevelInfo();
         DBProductInfo animalInfo = DBProductInfo.GetProductInfo(levelInfo.selectedAnimalId);

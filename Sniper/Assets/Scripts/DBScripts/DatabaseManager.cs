@@ -40,7 +40,7 @@ public class DatabaseManager
 
     public bool Init(bool replaceDBFile = false)
     {
-        //Debug.Log("Database Manager");
+        //Debug.Log("Database MasterManager");
         if (Instance == null)
         {
             Instance = this;

@@ -11,10 +11,10 @@ public class PanelLevelComplete : MonoBehaviour
     public Button btnNext;
     public Button btnAllMyAnimal;
 
-    private Manager manager;
+    private MasterManager manager;
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
 
         btnNext.onClick.AddListener(() => NextCallBack());
         btnAllMyAnimal.onClick.AddListener(() => AllMyAnimalCallBack());
@@ -25,7 +25,7 @@ public class PanelLevelComplete : MonoBehaviour
 
     private void AllMyAnimalCallBack()
     {
-        Manager.Instance.prefabsList.LoadPanel(Panel.AllMyAnimal, manager.uiManager.transform);
+        MasterManager.Instance.prefabsList.LoadPanel(Panel.AllMyAnimal, manager.uiManager.transform);
     }
 
     private void NextCallBack()

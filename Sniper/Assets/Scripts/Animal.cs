@@ -28,10 +28,10 @@ public class Animal : AnimalData, ITakeDamage
     private bool isDied = false;
     private bool isAttacking = false;
 
-    private Manager manager;
+    private MasterManager manager;
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         InitAnimalData();
         waypoints = manager.waypoints;
         animator = GetComponent<Animator>();

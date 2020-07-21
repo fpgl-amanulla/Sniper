@@ -10,11 +10,11 @@ public class PanelStart : MonoBehaviour
     public Button btnMyCollection;
     public Button btnWeapon;
 
-    private Manager manager;
+    private MasterManager manager;
     public static GameObject panelStart;
     private void Start()
     {
-        manager = Manager.Instance;
+        manager = MasterManager.Instance;
         panelStart = this.gameObject;
         btnPlay.onClick.AddListener(() => PlayCallBack());
         btnMyCollection.onClick.AddListener(() => MyCollectionCallBack());
@@ -23,8 +23,7 @@ public class PanelStart : MonoBehaviour
 
     private void PlayCallBack()
     {
-        GameObject panel = manager.prefabsList.LoadPanel(Panel.Map, manager.uiManager.transform);
-        //panel.GetComponent<PanelMap>().SetReference(this.gameObject);
+        manager.prefabsList.LoadPanel(Panel.Objectives, manager.uiManager.transform);
         this.gameObject.SetActive(false);
     }
 

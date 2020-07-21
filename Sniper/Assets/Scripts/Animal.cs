@@ -103,15 +103,19 @@ public class Animal : AnimalData, ITakeDamage
                 animalCanvas.gameObject.SetActive(false);
                 movementSpeed = 0;
                 rotationSpeed = 0;
-                manager.gameManager.killCount++;
-                manager.panelGame.UpdateKillCount();
-                if (manager.gameManager.killCount >= manager.levelManager.GetCurrentLevelInfo().animalToHunt)
+                if (this.productId == manager.levelManager.GetCurrentLevelInfo().selectedAnimalId)
                 {
-                    Debug.Log("Level Complete");
-                    manager.gameManager.isGameOver = true;
-                    StartCoroutine(LoadPanelLevelComplete());
+                    manager.gameManager.killCount++;
+                    manager.panelGame.UpdateKillCount();
+                    if (manager.gameManager.killCount >= manager.levelManager.GetCurrentLevelInfo().animalToHunt)
+                    {
+                        Debug.Log("Level Complete");
+                        manager.gameManager.isGameOver = true;
+                        StartCoroutine(LoadPanelLevelComplete());
+                    }
                 }
                 Die();
+
             }
             else
             {

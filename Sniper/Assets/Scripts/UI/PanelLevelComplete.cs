@@ -20,7 +20,7 @@ public class PanelLevelComplete : MonoBehaviour
         btnAllMyAnimal.onClick.AddListener(() => AllMyAnimalCallBack());
 
         Level levelInfo = manager.levelManager.GetCurrentLevelInfo();
-        txtLevelComplete.text = "Level " + (levelInfo.levelNo + 1).ToString() + " Completed";
+        txtLevelComplete.text = "Mission " + (levelInfo.levelNo + 1).ToString() + " Completed";
     }
 
     private void AllMyAnimalCallBack()

@@ -47,7 +47,7 @@ public class PanelObjective : MonoBehaviour
 
         Level levelInfo = manager.levelManager.GetCurrentLevelInfo();
 
-        txtLevelNo.text = "level " + (levelInfo.levelNo + 1).ToString();
+        txtLevelNo.text = "Mission " + (levelInfo.levelNo + 1).ToString();
 
         imgVictim.sprite = Resources.Load<Sprite>("Animal/Icon/i" + levelInfo.selectedAnimalId);
 

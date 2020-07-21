@@ -26,7 +26,7 @@ public class PanelGame : MonoBehaviour
 
     public void UpdateLevel()
     {
-        txtLevelNo.text = "Level " + (levelInfo.levelNo + 1).ToString();
+        txtLevelNo.text = "Mission " + (levelInfo.levelNo + 1).ToString();
     }
 
     public void UpdateKillCount()

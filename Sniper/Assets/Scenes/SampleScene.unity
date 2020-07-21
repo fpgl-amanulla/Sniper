@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b10a55a1ea43245a231c28b763a0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
   mainCamera: {fileID: 963194227}
   playerCamera: {fileID: 1502035106}
   weaponUI: {fileID: 1675828430}

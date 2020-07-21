@@ -122,8 +122,8 @@ public class Animal : AnimalData, ITakeDamage
                 isAttacking = true;
                 transform.DOShakePosition(1.0f);
                 transform.DOShakeScale(.1f);
-                movementSpeed += Random.Range(8, 10);
-                rotationSpeed += Random.Range(150, 200);
+                movementSpeed += Random.Range(20, 25);
+                rotationSpeed += Random.Range(250, 300);
             }
         }
         else

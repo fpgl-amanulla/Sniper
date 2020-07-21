@@ -36,7 +36,7 @@ public class PanelGame : MonoBehaviour
     }
     public void UpdateHealthBar(float currentHealth)
     {
-        float amount = (float)currentHealth / 10;
+        float amount = (float)currentHealth / 5;
         imgFill.fillAmount = amount;
         if (amount <= 0)
         {

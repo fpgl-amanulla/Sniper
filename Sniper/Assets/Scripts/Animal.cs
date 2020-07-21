@@ -45,10 +45,15 @@ public class Animal : AnimalData, ITakeDamage
             AnimalCanvas canvas = Resources.Load<PrefabsList>("PrefabsList").animalCanvasPrefab;
             animalCanvas = Instantiate(canvas, this.transform);
             animalCanvas.InitAnimalCanvas(this);
+            movementSpeed = Random.Range(4, 7);
+            rotationSpeed = Random.Range(100, 120);
+        }
+        else
+        {
+            movementSpeed = Random.Range(2, 5);
+            rotationSpeed = Random.Range(100, 120);
         }
         //animalCanvas.InitAnimalCanvas(health, productName);
-        movementSpeed = Random.Range(4, 7);
-        rotationSpeed = Random.Range(100, 120);
         stopDistance = 2.5f;
     }
 

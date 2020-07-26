@@ -25,7 +25,7 @@ public class PanelLevelComplete : MonoBehaviour
 
     private void AllMyAnimalCallBack()
     {
-        MasterManager.Instance.prefabsList.LoadPanel(Panel.AllMyAnimal, manager.uiManager.transform);
+        MasterManager.Instance.prefabsList.LoadPrefab(PrefabName.AllMyAnimal, manager.uiManager.transform);
     }
 
     private void NextCallBack()

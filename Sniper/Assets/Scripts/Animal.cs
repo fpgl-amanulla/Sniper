@@ -42,9 +42,8 @@ public class Animal : AnimalData, ITakeDamage
     {
         if (animalType == AnimalType.Big)
         {
-            AnimalCanvas canvas = Resources.Load<PrefabsList>("PrefabsList").animalCanvasPrefab;
-            animalCanvas = Instantiate(canvas, this.transform);
-            animalCanvas.InitAnimalCanvas(this);
+            GameObject canvas = manager.prefabsList.LoadPrefab(PrefabName.AnimalCanvas, this.transform);
+            animalCanvas = canvas.GetComponent<AnimalCanvas>();
             movementSpeed = Random.Range(4, 7);
             rotationSpeed = Random.Range(100, 120);
         }
@@ -141,7 +140,7 @@ public class Animal : AnimalData, ITakeDamage
     {
         yield return new WaitForSeconds(1.5f);
         manager.panelGame.gameObject.SetActive(false);
-        manager.prefabsList.LoadPanel(Panel.LevelComplete, manager.uiManager.transform);
+        manager.prefabsList.LoadPrefab(PrefabName.LevelComplete, manager.uiManager.transform);
         manager.levelManager.ResetLevel();
     }
 

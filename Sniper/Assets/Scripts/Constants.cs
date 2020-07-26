@@ -7,7 +7,7 @@ public interface ITakeDamage
     void TakeDamage(float damageAmount);
 }
 
-public enum Panel
+public enum PrefabName
 {
     Start,
     Map,
@@ -15,6 +15,7 @@ public enum Panel
     LevelFailed,
     AllMyAnimal,
     Objectives,
+    AnimalCanvas
 }
 public static class Constants
 {

@@ -23,13 +23,13 @@ public class UIManager : MonoBehaviour
     {
         weaponUI.SetActive(false);
         manager.panelGame.gameObject.SetActive(false);
-        manager.prefabsList.LoadPanel(Panel.Start, this.transform);
+        manager.prefabsList.LoadPrefab(PrefabName.Start, this.transform);
     }
 
     public void LoadPanelObjective()
     {
         weaponUI.SetActive(false);
-        manager.prefabsList.LoadPanel(Panel.Objectives, this.transform);
+        manager.prefabsList.LoadPrefab(PrefabName.Objectives, this.transform);
     }
 
     public void Restart()

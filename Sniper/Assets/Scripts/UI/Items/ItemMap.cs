@@ -19,7 +19,7 @@ public class ItemMap : MonoBehaviour
 
     private void ItemCallBack()
     {
-        MasterManager.Instance.prefabsList.LoadPanel(Panel.Objectives, MasterManager.Instance.uiManager.transform);
+        MasterManager.Instance.prefabsList.LoadPrefab(PrefabName.Objectives, MasterManager.Instance.uiManager.transform);
         Destroy(PanelStart.panelStart);
         Destroy(PanelMap.panelMap);
     }

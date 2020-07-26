@@ -30,17 +30,24 @@ MonoBehaviour:
   - {fileID: 7463216078461910446, guid: 927a45f9303f4c94384b813a24637f12, type: 3}
   - {fileID: 6040101199841023021, guid: e14315c7a2f867c4c841f3f956efc9a8, type: 3}
   - {fileID: 978570324127137692, guid: af884d86553941643938f0f0753b888b, type: 3}
-  animalCanvasPrefab: {fileID: 2115281113778679973, guid: c8f9f8a9173393e4aaed4441c6a284c5,
-    type: 3}
-  panelObjectivePrefab: {fileID: 8202560457668468642, guid: 2654747fd171c9244ac94b889d411363,
-    type: 3}
-  panelLevelCompletePrefab: {fileID: 3467365993457634944, guid: 804d32f4a31bbe844a807a36f3cd7b7e,
-    type: 3}
-  panelStartPrefab: {fileID: 906522711557122338, guid: 0fb1e525b7ee63f4c99d7804fac4abcd,
-    type: 3}
-  panelMapPrefab: {fileID: 1180095888894946121, guid: 20be69020747e8249954982a7fafa347,
-    type: 3}
-  panelLevelFailedPrefab: {fileID: 3467365993457634944, guid: ca23ad1de2492774bb422eb384dee438,
-    type: 3}
-  panelAllMyAnimalPrefab: {fileID: 6445406732584279454, guid: 2bcfa316db55deb4983a0f00cc3d27db,
-    type: 3}
+  allPrefabs:
+  - prefabName: 0
+    prefab: {fileID: 906522711557122338, guid: 0fb1e525b7ee63f4c99d7804fac4abcd, type: 3}
+  - prefabName: 1
+    prefab: {fileID: 1180095888894946121, guid: 20be69020747e8249954982a7fafa347,
+      type: 3}
+  - prefabName: 2
+    prefab: {fileID: 3467365993457634944, guid: 804d32f4a31bbe844a807a36f3cd7b7e,
+      type: 3}
+  - prefabName: 3
+    prefab: {fileID: 3467365993457634944, guid: ca23ad1de2492774bb422eb384dee438,
+      type: 3}
+  - prefabName: 5
+    prefab: {fileID: 8202560457668468642, guid: 2654747fd171c9244ac94b889d411363,
+      type: 3}
+  - prefabName: 6
+    prefab: {fileID: 1095925304918485666, guid: c8f9f8a9173393e4aaed4441c6a284c5,
+      type: 3}
+  - prefabName: 4
+    prefab: {fileID: 6445406732584279454, guid: 2bcfa316db55deb4983a0f00cc3d27db,
+      type: 3}

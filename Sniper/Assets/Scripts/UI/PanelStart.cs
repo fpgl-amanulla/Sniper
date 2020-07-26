@@ -23,13 +23,13 @@ public class PanelStart : MonoBehaviour
 
     private void PlayCallBack()
     {
-        manager.prefabsList.LoadPanel(Panel.Objectives, manager.uiManager.transform);
+        manager.prefabsList.LoadPrefab(PrefabName.Objectives, manager.uiManager.transform);
         this.gameObject.SetActive(false);
     }
 
     private void MyCollectionCallBack()
     {
-        manager.prefabsList.LoadPanel(Panel.AllMyAnimal, manager.uiManager.transform);
+        manager.prefabsList.LoadPrefab(PrefabName.AllMyAnimal, manager.uiManager.transform);
 
     }
     private void WeaponCallBack()

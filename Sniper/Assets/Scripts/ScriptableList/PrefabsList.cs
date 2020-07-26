@@ -1,6 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+[System.Serializable]
+public class Prefabs
+{
+    public PrefabName prefabName;
+    public GameObject prefab;
+}
 
 [CreateAssetMenu(fileName = "New PrefabsList", menuName = "PrefabsList")]
 public class PrefabsList : ScriptableObject
@@ -8,21 +14,7 @@ public class PrefabsList : ScriptableObject
     [Header("Animal Prefabs List")]
     public List<GameObject> allAnimalPrefabs = new List<GameObject>();
 
-    [Header("Animal Canvas Prefabs")]
-    public AnimalCanvas animalCanvasPrefab;
-
-    [Header("Panel Objective Prefab")]
-    public GameObject panelObjectivePrefab;
-    [Header("Panel Level Complete")]
-    public GameObject panelLevelCompletePrefab;
-    [Header("Panel Start")]
-    public GameObject panelStartPrefab;
-    [Header("Panel Map")]
-    public GameObject panelMapPrefab;
-    [Header("Panel Level Failed")]
-    public GameObject panelLevelFailedPrefab;
-    [Header("Panel AllMyAnimalPrefab")]
-    public GameObject panelAllMyAnimalPrefab;
+    public List<Prefabs> allPrefabs = new List<Prefabs>();
     public GameObject GetAnimalPrefeb(int productId)
     {
         for (int i = 0; i < allAnimalPrefabs.Count; i++)
@@ -35,51 +27,22 @@ public class PrefabsList : ScriptableObject
         return allAnimalPrefabs[0];
     }
 
-    public GameObject LoadPanel(Panel panel, Transform transform = null)
+    public GameObject LoadPrefab(PrefabName _prefabName, Transform transform = null)
     {
-
-        GameObject gPanel = null;
-        switch (panel)
+        for (int i = 0; i < allPrefabs.Count; i++)
         {
-            case Panel.Start:
-                if (transform)
-                    gPanel = Instantiate(panelStartPrefab, transform);
+            if (allPrefabs[i].prefabName == _prefabName)
+            {
+                if (transform != null)
+                {
+                    return Instantiate(allPrefabs[i].prefab, transform);
+                }
                 else
-                    gPanel = Instantiate(panelStartPrefab);
-                break;
-            case Panel.Map:
-                if (transform)
-                    gPanel = Instantiate(panelMapPrefab, transform);
-                else
-                    gPanel = Instantiate(panelStartPrefab);
-                break;
-            case Panel.LevelComplete:
-                if (transform)
-                    gPanel = Instantiate(panelLevelCompletePrefab, transform);
-                else
-                    gPanel = Instantiate(panelLevelCompletePrefab);
-                break;
-            case Panel.LevelFailed:
-                if (transform)
-                    gPanel = Instantiate(panelLevelFailedPrefab, transform);
-                else
-                    gPanel = Instantiate(panelLevelFailedPrefab);
-                break;
-            case Panel.AllMyAnimal:
-                if (transform)
-                    gPanel = Instantiate(panelAllMyAnimalPrefab, transform);
-                else
-                    gPanel = Instantiate(panelAllMyAnimalPrefab);
-                break;
-            case Panel.Objectives:
-                if (transform)
-                    gPanel = Instantiate(panelObjectivePrefab, transform);
-                else
-                    gPanel = Instantiate(panelObjectivePrefab);
-                break;
-            default:
-                break;
+                {
+                    return Instantiate(allPrefabs[i].prefab);
+                }
+            }
         }
-        return gPanel;
+        return null;
     }
 }

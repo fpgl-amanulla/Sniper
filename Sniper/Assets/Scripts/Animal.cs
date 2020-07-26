@@ -44,6 +44,7 @@ public class Animal : AnimalData, ITakeDamage
         {
             GameObject canvas = manager.prefabsList.LoadPrefab(PrefabName.AnimalCanvas, this.transform);
             animalCanvas = canvas.GetComponent<AnimalCanvas>();
+            animalCanvas.InitAnimalCanvas(this);
             movementSpeed = Random.Range(4, 7);
             rotationSpeed = Random.Range(100, 120);
         }
